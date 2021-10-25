@@ -4,7 +4,7 @@
 
 View 3D / Pose Mode
 
-This addon is shift all animation keys on the animation track after moving pose bones.
+This addon is shift location/rotation/scale for all animation keys on the animation track after moving pose bones.
 
 ## UI
 
