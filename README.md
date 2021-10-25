@@ -8,7 +8,7 @@ View 3D / Pose Mode
 
 ## UI
 
-- Animation Offset Shift Enabled
+- Animation Offset Shift Enable
   - チェックすると機能を有効にする。 **有効時はタイムラインのAuto Keying(オートキー)がオフになる。**
 
 ## 動画

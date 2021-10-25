@@ -8,10 +8,10 @@ This addon is all animation keys shifting on the animation track after moving po
 
 ## UI
 
-- Animation Offset Shift Enabled
-  - Enable the function. **Auto Keying will be disable when this option enabled**
+- Animation Offset Shift Enable
+  - Enable the function. **Auto Keying will be disable when this option enabled.**
 
-## Movie
+## Video
 
 Under construction
 
