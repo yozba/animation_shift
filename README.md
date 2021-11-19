@@ -1,5 +1,7 @@
 # Tools:Q Animation Offset Shift
 
+[English](README.en.md)
+
 ## 概要
 
 View 3D / Pose Mode
