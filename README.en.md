@@ -15,7 +15,7 @@ This addon is shift location/rotation/scale for all animation keys on the animat
 
 ## Video
 
-Under construction
+[![Watch on the YouTube](https://img.youtube.com/vi/JuZlc8Z_PUM/0.jpg)](https://www.youtube.com/watch?v=JuZlc8Z_PUM)
 
 ## How to install
 
