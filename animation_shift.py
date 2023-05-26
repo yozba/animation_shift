@@ -165,11 +165,6 @@ def _update_deform( self, depsgraph ):
 # -----------------------------------------------------------------------------
 
 def _draw( ):
-    if _init_deform not in bpy.app.handlers.frame_change_post:
-        bpy.app.handlers.frame_change_post.append( _init_deform )
-    if _update_deform not in bpy.app.handlers.depsgraph_update_post:
-        bpy.app.handlers.depsgraph_update_post.append( _update_deform )
-
     scene = bpy.context.scene
 
     if not hasattr( scene, "temp_animation_shift" ) or not hasattr( scene, "temp_use_keyframe_insert_auto" ):
@@ -209,18 +204,18 @@ def register():
     for i in classes:
         bpy.utils.register_class(i)
 
-    _initialized( )
+    _initialize( )
 
 def unregister():
     """
         クラス登録解除
     """
-    _deinitialized( )
+    _deinitialize( )
 
     for i in classes:
         bpy.utils.unregister_class(i)
 
-def _initialized( ):
+def _initialize( ):
     """
         初期化
     """
@@ -231,7 +226,6 @@ def _initialized( ):
     bpy.app.handlers.redo_pre.append( _stop_update )
     bpy.app.handlers.undo_pre.append( _stop_update )
     bpy.app.handlers.frame_change_pre.append( _stop_update )
-    #bpy.app.handlers.depsgraph_update_pre.append( _stop_update )
 
     bpy.app.handlers.load_post.append( _init_deform )
     bpy.app.handlers.redo_post.append( _init_deform )
@@ -240,7 +234,7 @@ def _initialized( ):
     global _func_handler_display_handle
     _func_handler_display_handle = bpy.types.SpaceView3D.draw_handler_add( _draw, (), 'WINDOW', 'POST_PIXEL' )
 
-def _deinitialized( ):
+def _deinitialize( ):
     """
         後始末
     """
@@ -251,3 +245,11 @@ def _deinitialized( ):
     if _func_handler_display_handle is not None:
         bpy.types.SpaceView3D.draw_handler_remove( _func_handler_display_handle, 'WINDOW' )
 
+    bpy.app.handlers.load_pre.remove( _stop_update )
+    bpy.app.handlers.redo_pre.remove( _stop_update )
+    bpy.app.handlers.undo_pre.remove( _stop_update )
+    bpy.app.handlers.frame_change_pre.remove( _stop_update )
+
+    bpy.app.handlers.load_post.remove( _init_deform )
+    bpy.app.handlers.redo_post.remove( _init_deform )
+    bpy.app.handlers.undo_post.remove( _init_deform )
