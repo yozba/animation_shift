@@ -165,6 +165,11 @@ def _update_deform( self, depsgraph ):
 # -----------------------------------------------------------------------------
 
 def _draw( ):
+    if _init_deform not in bpy.app.handlers.frame_change_post:
+        bpy.app.handlers.frame_change_post.append( _init_deform )
+    if _update_deform not in bpy.app.handlers.depsgraph_update_post:
+        bpy.app.handlers.depsgraph_update_post.append( _update_deform )
+
     scene = bpy.context.scene
 
     if not hasattr( scene, "temp_animation_shift" ) or not hasattr( scene, "temp_use_keyframe_insert_auto" ):
