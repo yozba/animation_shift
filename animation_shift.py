@@ -173,7 +173,7 @@ def _draw( ):
     if scene.temp_animation_shift:
         bpy.context.tool_settings.use_keyframe_insert_auto = False
 
-        blf.size( 0, 32, 72 )
+        blf.size( 0, 32 )
         blf.position( 0, 16, 16, 0 )
         blf.color( 0, 1.0, 0.0, 0.0, 1.0 )
         blf.draw( 0, "!! Animation Offset Shift Enabled !!" )
